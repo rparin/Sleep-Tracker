@@ -52,16 +52,16 @@ npm install
 
 ### Setting up Firebase
 
-5. Create a [Firebase Project][firebase-setup-url] with `Firestore Database`
+1. Create a [Firebase Project][firebase-setup-url] with `Firestore Database`
    - Get started > Add project > 'projectName'
    - On the left there is a navigation tab select 'All Products'
      - Cloud Firestore > Create database > Start in test mode > 'yourSelectedLocation' > Enable
-6. Add a firebase `webapp` to your recently created Project
+2. Add a firebase `webapp` to your recently created Project
    - On the left there is a navigation tab, on the right of Project Overview select the gear icon
      - Gear icon > Project settings
    - Scroll to the bottom, in the 'Your apps' section select the icon '</>' to create a web app
-7. Copy the Firebase configuration code `const firebaseConfig = { .. }`
-8. Paste this config into the file `sleeptracker/src/environments.ts`
+3. Copy the Firebase configuration code `const firebaseConfig = { .. }`
+4. Paste this config into the file `sleeptracker/src/environments.ts`
 
 ## Running the App
 
