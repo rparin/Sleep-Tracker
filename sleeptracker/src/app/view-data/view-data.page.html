@@ -1,0 +1,167 @@
+<ion-content class="content-container" [fullscreen]="true">
+  <div class="header-container">
+    <button (click)="helper.goHome()">
+      <img class="back-button" src="/assets/home/back.png" alt="back icon" />
+    </button>
+    <h1 class="header-text">Sleep Journal</h1>
+  </div>
+
+  <div class="dateInfo">
+    <h1>{{currentDate}}</h1>
+    <ion-datetime-button
+      class="calendarButton"
+      color="lightblue"
+      datetime="calDateTime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          presentation="date"
+          id="calDateTime"
+          #calDateTime
+          [(ngModel)]="dateValue"
+          (ionChange)="updateWeekDay()"
+          ><ion-buttons slot="buttons">
+            <ion-button
+              color="primary"
+              (click)="helper.closeModal()"
+              (click)="calDateTime.cancel()"
+              >Abort</ion-button
+            >
+            <ion-button
+              color="dark"
+              (click)="helper.closeModal()"
+              (click)="calDateTime.confirm()"
+              >Confirm</ion-button
+            >
+          </ion-buttons>
+        </ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </div>
+  <div class="weekdayButtons" (change)="updateCalendar()">
+    <ng-container *ngFor="let weekDay of weekDays; let i = index">
+      <input
+        [(ngModel)]="activeDay"
+        type="radio"
+        id="radio{{i+1}}"
+        name="weekDayOptions"
+        value="{{weekDay}}" />
+      <label for="radio{{i+1}}">
+        <h2 class="menu-text">{{weekDay[0]}}</h2>
+      </label>
+    </ng-container>
+  </div>
+
+  <div *ngIf="selectedItemExists;else sleepElse" class="sleepInfo">
+    <div class="sleepInfoHours">
+      <h1>{{ hoursSlept }}</h1>
+      <h4>Hours Slept</h4>
+      <div *ngIf="selectedDateTimeInfo.moodValue >= 0">
+        <h5>Wake Up Mood</h5>
+        <img
+          class="button-image"
+          [src]="getMoodImage(selectedDateTimeInfo.moodValue)"
+          alt="{{moods[selectedDateTimeInfo.moodValue]}} face icon" />
+      </div>
+    </div>
+    <div class="sleepInfoTime">
+      <h5>Time Woke Up</h5>
+      <h3>
+        {{selectedDateTimeInfo.wakeTime}}
+        <span class="period-time">{{selectedDateTimeInfo.wakePeriod}}</span>
+      </h3>
+      <h5>Time Slept</h5>
+      <h3>
+        {{selectedDateTimeInfo.sleepTime}}
+        <span class="period-time">{{selectedDateTimeInfo.sleepPeriod}}</span>
+      </h3>
+      <h4>{{selectedDateTimeInfo.sleepDate}}</h4>
+      <button
+        class="trash-button log-trash-button"
+        (click)="presentAlert('Delete Sleep Log?', 'delete', deleteLogConfirm)">
+          <img
+            class="button-image"
+            src="../../assets/other/trash.png"
+            alt="trash icon" />
+      </button>
+    </div>
+  </div>
+  <ng-template #sleepElse>
+    <h1 class="noData">No Sleep Log Saved</h1>
+  </ng-template>
+
+  <div class="tRateContainer">
+    <h1 class="tRateTitle">Tired Ratings</h1>
+    <button (click)="changeSort()">
+      <img
+        *ngIf="sortTimeValue"
+        class="rateOption-image"
+        src="../../assets/other/time.png"
+        alt="time icon" />
+      <img
+        *ngIf="!sortTimeValue"
+        class="rateOption-image"
+        src="../../assets/other/number.png"
+        alt="number list icon" />
+    </button>
+    <button (click)="reverseOrder()">
+      <img
+        *ngIf="!ascending"
+        class="rateOption-image"
+        src="../../assets/other/up.png"
+        alt="arrow icon" />
+      <img
+        *ngIf="ascending"
+        class="rateOption-image"
+        src="../../assets/other/down.png"
+        alt="arrow icon" />
+    </button>
+  </div>
+
+  <div
+    *ngIf="tiredRatingExists; else tiredElse"
+    class="sleepyRating-container"
+    [ngClass]="{'reverseColContainer' : ascending == true}">
+    <ng-container
+      *ngFor="let rateInfo of selectedDateTimeInfo.ratings; let i = index">
+      <div>
+        <h1
+          id="trigger-button{{i}}"
+          class="pie"
+          [style]="getPieStyle(rateInfo.value)">
+          {{rateInfo.value}}
+        </h1>
+        <ion-popover trigger="trigger-button{{i}}">
+          <ng-template>
+            <h2
+              class="rateInfoText"
+              [style]="getPopStyle(rateInfo.value)"
+              [ngClass]="{'rateInfoText-black' : rateInfo.value == 4}">
+              {{scale[rateInfo.value-1]}}
+            </h2>
+          </ng-template>
+        </ion-popover>
+        <div>
+          <h3>Time Recorded</h3>
+          <h2>
+            {{rateInfo.time}}
+            <span class="period-time">{{rateInfo.period}}</span>
+          </h2>
+          <button
+            class="trash-button"
+            [style]="getPopStyle(rateInfo.value)"
+            (click)="presentAlert('Delete Tired Rating?', 'delete', deleteRatingConfirm, rateInfo.time + rateInfo.period)">
+            <img
+              class="button-image"
+              src="../../assets/other/trash.png"
+              alt="trash icon" />
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-template #tiredElse>
+    <h1 class="noData">No Ratings Recorded</h1>
+  </ng-template>
+</ion-content>

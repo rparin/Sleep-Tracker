@@ -1,0 +1,358 @@
+button {
+  background: none;
+  margin: 0;
+}
+
+.header-container {
+  display: flex;
+  width: 100%;
+  height: 13vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0;
+  margin-top: 1rem;
+  padding-right: 1.5rem;
+}
+
+.header-text {
+  font-family: Frederick;
+  margin: 2rem 2rem 2rem 0rem;
+}
+
+.noData {
+  font-family: Frederick;
+  font-size: 1.1rem;
+}
+
+.content-container {
+  display: flex;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.back-button {
+  margin: 0 0.5rem 0 0rem;
+  padding: 0.4rem;
+  width: 3rem;
+  height: auto;
+  //   background-color: rgba(0, 0, 0, 0.132);
+  //   border-radius: 3rem;
+}
+
+.back-button:hover {
+  padding: 0;
+  //   background-color: rgba(3, 12, 106, 0.409);
+  //   border-radius: 3rem;
+}
+
+.weekdayButtons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 0.5rem 0.7rem 0.5rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  border-radius: 1rem;
+  background: #5a63955f;
+}
+
+.weekdayButtons input[type="radio"]:checked + label {
+  // background: #0081bd;
+  background-color: #0081bd;
+  height: 2.5rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  margin: 0;
+  padding-bottom: 0.6rem;
+}
+
+.weekdayButtons > input {
+  display: none;
+}
+
+.menu-text {
+  margin: 0.5rem;
+  font-family: Concert;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+}
+
+.dateInfo {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  font-family: Frederick;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  // background: blue;
+}
+
+.dateInfo h1 {
+  font-size: 1.2rem;
+  margin: 0;
+  margin-bottom: 0.1rem;
+  margin-right: 0.3rem;
+}
+
+// .dateInfo h2 {
+//   font-size: 1rem;
+//   margin: 0;
+//   margin-left: 0.5rem;
+//   margin-top: 0.2rem;
+//   background: blue;
+// }
+
+// .calendar-image {
+//   margin: 0;
+//   margin-left: 0.5rem;
+//   padding: 0.1rem;
+//   border-radius: 0.5rem;
+//   width: 2.5rem;
+//   height: auto;
+//   background: #5a63955f;
+// }
+
+// .calendar-image:hover {
+//   padding: 0;
+// }
+
+.calendarButton {
+  font-family: Concert;
+}
+
+.sleepInfo {
+  font-family: Frederick;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  // background-color: green;
+}
+
+// Hours Slept
+.sleepInfoHours {
+  font-family: Frederick;
+  margin-right: 1rem;
+  // background-color: red;
+}
+
+.sleepInfoHours h3,
+h4 {
+  margin: 0;
+}
+
+.sleepInfoHours div {
+  display: flex;
+}
+
+.sleepInfoHours h1 {
+  font-size: 3rem;
+}
+
+.sleepInfoHours h5 {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  // background-color: red;
+}
+
+.button-image {
+  padding: 0.5rem;
+  // background: purple;
+  width: 3rem;
+  height: auto;
+}
+
+// Log Sleep Times
+.sleepInfoTime {
+  display: flex;
+  flex-direction: column;
+  font-family: Frederick;
+  align-items: flex-start;
+  // background-color: blue;
+}
+
+.sleepInfoTime h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+.sleepInfoTime h4 {
+  font-size: 1rem;
+}
+
+.sleepInfoTime h3 {
+  font-size: 1.5rem;
+}
+
+.sleepInfoTime h5 {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.404);
+  padding-top: 0.3rem;
+}
+
+.period-time {
+  font-size: 1rem;
+}
+
+.log-trash-button {
+  margin-top: 0.5rem;
+}
+
+.tRateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1.2rem;
+  // background-color: red;
+}
+
+.tRateTitle {
+  display: flex;
+  font-family: Frederick;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 1rem 0.5rem 1rem 0rem;
+  // background-color: aqua;
+}
+
+.rateOption-image {
+  margin: 0;
+  padding: 0;
+  width: 2rem;
+  height: auto;
+  // background: purple;
+}
+
+.rateOption-image:hover {
+  margin: 0;
+  width: 2.5rem;
+  height: auto;
+  // background: purple;
+}
+
+.tiredOptions {
+  font-size: 2rem;
+}
+
+.sleepyRating-container {
+  display: flex;
+  font-family: Frederick;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // background-color: red;
+}
+
+.sleepyRating-container div h1,
+.sleepyRating-container div div h2,
+.sleepyRating-container div div h3 {
+  margin: 0;
+}
+
+.sleepyRating-container .pie {
+  font-family: Frederick;
+  font-size: 3rem;
+  margin-right: 2rem;
+
+  // background-color: green;
+}
+
+.sleepyRating-container div div h3 {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.404);
+}
+
+.sleepyRating-container div {
+  display: flex;
+  justify-content: column;
+  margin-bottom: 2rem;
+  // background-color: blue;
+}
+
+.sleepyRating-container div div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  // background-color: red;
+}
+
+.pie {
+  --p: 90; /* the percentage */
+  --b: 0.5rem; /* the thickness */
+  --c: rgba(0, 157, 248, 0); /* the color */
+  --w: 7rem; /* the size*/
+
+  width: var(--w);
+  aspect-ratio: 1/1;
+  position: relative;
+  display: inline-grid;
+  place-content: center;
+}
+
+.pie:before,
+.pie:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.pie:before {
+  inset: 0;
+
+  background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b)
+      var(--b) no-repeat,
+    conic-gradient(var(--c), calc(var(--p) * 1%), #0000 0);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(99% - var(--b)),
+    #000 calc(100% - var(--b))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    #0000 calc(99% - var(--b)),
+    #000 calc(100% - var(--b))
+  );
+}
+
+.rateInfoText {
+  --c: rgb(0, 110, 255);
+  background-color: var(--c);
+  font-family: Dyna;
+  font-size: 1.4rem;
+  padding: 1rem;
+  text-align: left;
+  border-radius: 2rem;
+}
+
+.rateInfoText-black {
+  color: black;
+}
+
+.reverseColContainer {
+  flex-direction: column-reverse;
+}
+
+.trash-button {
+  --c: rgba(255, 0, 0, 0.568);
+  display: flex;
+  flex-direction: row;
+  background: var(--c);
+  border-radius: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.trash-button:hover {
+  background: rgba(255, 255, 255, 0.651);
+}

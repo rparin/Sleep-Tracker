@@ -1,0 +1,204 @@
+button {
+  background: none;
+  margin: 0;
+}
+
+.header-container {
+  display: flex;
+  width: 100%;
+  height: 11vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0;
+  margin-top: 1rem;
+  // padding-right: 1rem;
+  // background: red;
+}
+
+.header-text {
+  font-family: Frederick;
+  margin: 2rem 2rem 2rem 0rem;
+  text-align: left;
+}
+
+.content-container {
+  display: flex;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.back-button {
+  margin: 0 0.5rem 0 0rem;
+  padding: 0.4rem;
+  width: 3rem;
+  height: auto;
+  //   background-color: rgba(0, 0, 0, 0.132);
+  //   border-radius: 3rem;
+}
+
+.back-button:hover {
+  padding: 0;
+  //   background-color: rgba(3, 12, 106, 0.409);
+  //   border-radius: 3rem;
+}
+
+.innerText {
+  font-family: Frederick;
+  font-size: 1.7rem;
+  margin: 1.2rem 3rem;
+  color: white;
+}
+
+.radio-container {
+  display: flex;
+  margin: 0 1rem 0.3rem 1rem;
+  border-radius: 1rem;
+  background: #5a63955f;
+  flex-direction: column;
+}
+
+.radio-container > input {
+  display: none;
+}
+
+.radio-container input[type="radio"]:checked + label {
+  background: #0081bd;
+  border-radius: 1rem;
+}
+
+.scale-container:hover {
+  border-radius: 1rem;
+  background: rgba(98, 0, 235, 0.514);
+}
+
+.scale-container {
+  display: flex;
+  justify-content: center;
+  // background-color: blue;
+}
+
+// .item-radio-checked {
+//   background: #0081bd;
+//   border-radius: 1rem;
+// }
+
+// .radio-btn {
+//   border-radius: 1rem;
+//   margin: 0.1rem;
+// }
+
+// .radio-btn:hover {
+//   background: #005d89;
+// }
+
+.scale-container {
+  display: flex;
+  flex-direction: row;
+  border-bottom: #5a63955f solid;
+  border-width: 0.2rem;
+  align-items: center;
+}
+
+.scale-container h2 {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.border-none {
+  border: none;
+}
+
+.num {
+  display: flex;
+  font-family: Frederick;
+  font-size: 2.5rem;
+  // background-color: red;
+  justify-content: flex-end;
+  width: 10%;
+}
+
+.radio-txt {
+  display: flex;
+  text-align: left;
+  font-family: Concert;
+  white-space: normal;
+  width: 90%;
+}
+
+// .radio-desc {
+//   margin: auto;
+// }
+
+// ion-item {
+//   --background: none;
+//   --border-radius: 1rem;
+// }
+
+// ion-radio {
+//   --color: white;
+//   --color-checked: white;
+// }
+
+.saveContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  margin-bottom: 7rem;
+  // background: red;
+}
+
+.save-button {
+  display: flex;
+  flex-direction: row;
+  // margin: 2rem 1rem 0rem 1rem;
+  // padding: 0.2rem 1rem 0.2rem 1rem;
+  background: rgba(8, 150, 216, 0.342);
+  border-radius: 1rem;
+  align-items: center;
+  margin-top: 1.5rem;
+  // min-width: 15rem;
+  // max-width: 15rem;
+  // gap: 0.7rem;
+}
+
+.save-button:hover {
+  background: rgba(0, 174, 255, 0.466);
+}
+
+.save-text {
+  margin: 0;
+  font-family: Concert;
+  // background: yellow;
+}
+
+.save-image {
+  margin: 0 0.5rem 0 0.5rem;
+  padding: 0.5rem;
+  // background: purple;
+  width: 3rem;
+  height: auto;
+}
+
+.ml {
+  margin-left: 1.5rem;
+}
+
+.innerContainer {
+  // background: red;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  margin-bottom: 1rem;
+}
+.timeButton {
+  font-family: Concert;
+  font-size: 1.3rem;
+}
+.dateButton {
+  font-family: Concert;
+  font-size: 1.3rem;
+  margin-right: 0.6rem;
+}

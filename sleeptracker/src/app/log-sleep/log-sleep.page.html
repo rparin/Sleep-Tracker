@@ -1,0 +1,229 @@
+<ion-content class="content-container no-scroll">
+  <div class="header-container">
+    <button (click)="helper.goHome()">
+      <img class="back-button" src="/assets/home/back.png" alt="back icon" />
+    </button>
+    <h1 class="header-text">Log Sleep</h1>
+  </div>
+  <div class="buttons-container" (change)="updateButton()">
+    <ng-container *ngFor="let bname of buttonNames; let i = index">
+      <input
+        [(ngModel)]="activeButton"
+        type="radio"
+        id="radio{{i+1}}"
+        name="logOptions"
+        value="{{bname}}" />
+      <label for="radio{{i+1}}">
+        <h2 class="menu-text">{{bname}}</h2>
+      </label>
+    </ng-container>
+  </div>
+
+  <div
+    class="logInfoContainer"
+    [ngClass]="{'reverseContainer' : activeButton == 'Night' ||  activeButton == 'Custom'}">
+    <div class="logContainer">
+      <h1 *ngIf="activeButton == 'Morning'" class="innerText">Just woke up:</h1>
+      <h1 *ngIf="activeButton == 'Night'" class="innerText">
+        When are you going to wake up?
+      </h1>
+      <h1 *ngIf="activeButton == 'Custom'" class="innerText">
+        When did you wake up?
+      </h1>
+      <div
+        *ngIf="activeButton == 'Night' || activeButton == 'Custom'; else elseBlock"
+        class="innerContainer">
+        <ion-datetime-button
+          class="timeButton"
+          color="gold"
+          datetime="wakeDateTime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              color="gold"
+              presentation="time"
+              id="wakeDateTime"
+              #wakeDateTime
+              [(ngModel)]="wakeTimeValue"
+              (ionChange)="setWakeTime = wakeTimeValue"
+              (ionChange)="getLogExists()"
+              ><ion-buttons slot="buttons">
+                <ion-button
+                  color="primary"
+                  (click)="helper.closeModal()"
+                  (click)="wakeDateTime.cancel()"
+                  >Abort</ion-button
+                >
+                <ion-button
+                  color="dark"
+                  (click)="helper.closeModal()"
+                  (click)="wakeDateTime.confirm()"
+                  >Confirm</ion-button
+                >
+              </ion-buttons>
+            </ion-datetime>
+          </ng-template>
+        </ion-modal>
+
+        <ion-datetime-button
+          class="dateButton"
+          color="gold"
+          datetime="wakeDate"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              presentation="date"
+              color="gold"
+              [preferWheel]="true"
+              id="wakeDate"
+              #wakeDate
+              [(ngModel)]="wakeTimeValue"
+              (ionChange)="setWakeTime = wakeTimeValue"
+              (ionChange)="getLogExists()"
+              size="cover"
+              ><ion-buttons slot="buttons">
+                <ion-button
+                  color="primary"
+                  (click)="helper.closeModal()"
+                  (click)="wakeDate.cancel()"
+                  >Abort</ion-button
+                >
+                <ion-button
+                  color="dark"
+                  (click)="helper.closeModal()"
+                  (click)="wakeDate.confirm()"
+                  >Confirm</ion-button
+                >
+              </ion-buttons>
+            </ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </div>
+      <ng-template #elseBlock>
+        <div class="currentTime-container">
+          <h1>{{getCurrentHour()}}<span>{{getCurrentPeriod()}}</span></h1>
+          <h2>{{getWeekDay()}}, {{getCurrentMonth()}}</h2>
+          <!-- <h1 class="innerText">{{currentTime}}</h1> -->
+        </div>
+      </ng-template>
+    </div>
+    <div class="logContainer">
+      <h1 *ngIf="activeButton == 'Morning'" class="innerText">
+        When did you sleep?
+      </h1>
+      <h1 *ngIf="activeButton == 'Night'" class="innerText">Going to bed:</h1>
+      <h1 *ngIf="activeButton == 'Custom'" class="innerText">
+        When did you sleep?
+      </h1>
+
+      <div
+        *ngIf="activeButton == 'Morning' || activeButton == 'Custom'; else elseBlock"
+        class="innerContainer">
+        <ion-datetime-button
+          class="timeButton"
+          color="lightblue"
+          datetime="sleepDateTime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              color="lightblue"
+              presentation="time"
+              id="sleepDateTime"
+              #sleepDateTime
+              [(ngModel)]="sleepTimeValue"
+              (ionChange)="setSleepTime = sleepTimeValue"
+              (ionChange)="getLogExists()"
+              ><ion-buttons slot="buttons">
+                <ion-button
+                  color="primary"
+                  (click)="helper.closeModal()"
+                  (click)="sleepDateTime.cancel()"
+                  >Abort</ion-button
+                >
+                <ion-button
+                  color="dark"
+                  (click)="helper.closeModal()"
+                  (click)="sleepDateTime.confirm()"
+                  >Confirm</ion-button
+                >
+              </ion-buttons>
+            </ion-datetime>
+          </ng-template>
+        </ion-modal>
+
+        <ion-datetime-button
+          class="dateButton"
+          color="lightblue"
+          datetime="sleepDate"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              color="lightblue"
+              presentation="date"
+              [preferWheel]="true"
+              id="sleepDate"
+              #sleepDate
+              [(ngModel)]="sleepTimeValue"
+              (ionChange)="setSleepTime = sleepTimeValue"
+              (ionChange)="getLogExists()"
+              size="cover"
+              ><ion-buttons slot="buttons">
+                <ion-button
+                  color="primary"
+                  (click)="helper.closeModal()"
+                  (click)="sleepDate.cancel()"
+                  >Abort</ion-button
+                >
+                <ion-button
+                  color="dark"
+                  (click)="helper.closeModal()"
+                  (click)="sleepDate.confirm()"
+                  >Confirm</ion-button
+                >
+              </ion-buttons>
+            </ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </div>
+    </div>
+  </div>
+  <h1 class="moodText">Wake Up Mood</h1>
+  <div class="mood-container">
+    <ng-container *ngFor="let mood of moods; let i = index">
+      <input
+        [(ngModel)]="activeMood"
+        type="radio"
+        id="mood{{i+1}}"
+        name="moodOptions"
+        value="{{i+1}}" />
+      <label for="mood{{i+1}}">
+        <img
+          class="mood-image"
+          [src]="getMoodImage(i)"
+          alt="{{moods[i]}} face icon" />
+      </label>
+    </ng-container>
+  </div>
+  <div class="saveContainer">
+    <button
+      class="trash-button"
+      *ngIf="doesLogExists"
+      (click)="presentAlert('Delete your log?', 'delete', deleteLogConfirm)">
+      <img class="icon-image" src="/assets/other/trash.png" alt="Trash icon" />
+    </button>
+    <button
+      *ngIf="doesLogExists"
+      class="save-button"
+      (click)="presentAlert('Overwrite your save?', 'save', saveLogConfirm)">
+      <h2 class="save-text ml">Save</h2>
+      <img class="icon-image" src="/assets/other/tick.png" alt="Save icon" />
+    </button>
+    <button
+      *ngIf="!doesLogExists"
+      class="save-button"
+      (click)="saveLogConfirm()">
+      <h2 class="save-text ml">Save</h2>
+      <img class="icon-image" src="/assets/other/tick.png" alt="Save icon" />
+    </button>
+  </div>
+</ion-content>

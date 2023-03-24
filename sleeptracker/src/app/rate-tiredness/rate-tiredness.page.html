@@ -1,0 +1,108 @@
+<!-- HEADER -->
+<ion-content class="content-container" [fullscreen]="true">
+  <div class="header-container">
+    <button (click)="helper.goHome()" (click)="resetValues()">
+      <img class="back-button" src="/assets/home/back.png" alt="back icon" />
+    </button>
+    <h1 class="header-text">Rate Tiredness</h1>
+  </div>
+
+  <!-- DATE / TIME INPUT -->
+  <div class="innerContainer">
+    <ion-datetime-button
+      color="lightblue"
+      class="timeButton"
+      datetime="tiredTime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          color="lightblue"
+          presentation="time"
+          id="tiredTime"
+          #tiredTime
+          [(ngModel)]="tiredTimeValue"
+          (ionChange)="setTiredTime = tiredTimeValue">
+          <ion-buttons slot="buttons">
+            <ion-button
+              color="primary"
+              (click)="helper.closeModal()"
+              (click)="tiredTime.cancel()"
+              >Abort</ion-button
+            >
+            <ion-button
+              color="dark"
+              (click)="helper.closeModal()"
+              (click)="tiredTime.confirm()"
+              >Confirm</ion-button
+            >
+          </ion-buttons>
+        </ion-datetime>
+      </ng-template>
+    </ion-modal>
+
+    <ion-datetime-button
+      color="lightblue"
+      class="dateButton"
+      datetime="tiredDate"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          color="lightblue"
+          presentation="date"
+          [preferWheel]="true"
+          id="tiredDate"
+          #tiredDate
+          [(ngModel)]="tiredTimeValue"
+          (ionChange)="setTiredTime = tiredTimeValue"
+          size="cover">
+          <ion-buttons slot="buttons">
+            <ion-button
+              color="primary"
+              (click)="helper.closeModal()"
+              (click)="tiredDate.cancel()"
+              >Abort</ion-button
+            >
+            <ion-button
+              color="dark"
+              (click)="helper.closeModal()"
+              (click)="tiredDate.confirm()"
+              >Confirm</ion-button
+            >
+          </ion-buttons>
+        </ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </div>
+
+  <!-- RADIO SCALE BUTTONS -->
+  <h1 class="innerText">How are you feeling?</h1>
+  <div class="radio-container">
+    <ng-container
+      *ngFor="let scaleText of scale; let i = index;let last = last">
+      <input
+        [(ngModel)]="selectedScale"
+        type="radio"
+        id="radio{{i+1}}"
+        name="scaleOptions"
+        value="{{i}}" />
+      <label for="radio{{i+1}}">
+        <div class="scale-container" [ngClass]="{'border-none' : last}">
+          <h2 class="num">{{i+1}}</h2>
+          <h2 class="radio-txt">{{scaleText}}</h2>
+        </div>
+      </label>
+    </ng-container>
+  </div>
+
+  <!-- SAVE BUTTON -->
+  <div class="saveContainer">
+    <button
+      *ngIf="selectedScale"
+      class="save-button"
+      (click)="helper.presentToast('middle', 'Rating Saved!', 'good-toast')"
+      (click)="saveRating()">
+      <h2 class="save-text ml">Save</h2>
+      <img class="save-image" src="/assets/other/tick.png" alt="Save icon" />
+    </button>
+  </div>
+</ion-content>

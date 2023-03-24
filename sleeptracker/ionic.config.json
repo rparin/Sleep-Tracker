@@ -1,0 +1,7 @@
+{
+  "name": "a4-sleeptracker-f22",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

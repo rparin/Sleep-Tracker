@@ -1,0 +1,33 @@
+<ion-content class="content-container" [fullscreen]="true">
+  <div class="header-container">
+    <img
+      class="header-image"
+      src="/assets/home/sleeping.png"
+      alt="person sleeping" />
+    <h1 class="header-text">Sleep Tracker</h1>
+  </div>
+  <div class="buttons-container">
+    <button class="menu-button" (click)="logSleep()">
+      <img class="menu-image" src="/assets/home/sunny.png" alt="Sun" />
+      <h2 class="menu-text">Log Sleep</h2>
+      <img
+        class="menu-image"
+        src="/assets/home/night.png"
+        alt="Starry night with moon" />
+    </button>
+    <button class="menu-button" (click)="recordSleepiness()">
+      <h2 class="menu-text ml">Rate Tiredness</h2>
+      <img
+        class="menu-image"
+        src="/assets/home/sleepy.png"
+        alt="Clock sleeping" />
+    </button>
+    <button class="menu-button" (click)="viewSleepData()">
+      <h2 class="menu-text ml">View Journal</h2>
+      <img
+        class="menu-image"
+        src="/assets/home/journal.png"
+        alt="Journal with compass on front cover" />
+    </button>
+  </div>
+</ion-content>
