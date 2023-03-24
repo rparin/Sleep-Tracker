@@ -48,7 +48,7 @@ To get started, simply clone the repository and follow the instructions in the [
 npm install
 ```
 
-4. You should see a `node_modules` folder once all dependencies have been installed
+4. You should see a `node_modules` folder once all dependencies has been installed
 
 ### Setting up Firebase
 
@@ -60,7 +60,7 @@ npm install
    - On the left there is a navigation tab, on the right of Project Overview select the gear icon
      - Gear icon > Project settings
    - Scroll to the bottom, in the 'Your apps' section select the icon '</>' to create a web app
-3. Copy the Firebase configuration code `const firebaseConfig = { .. }`
+3. Copy the Firebase configuration code `const firebaseConfig = { ... }`
 4. Paste this config into the file `sleeptracker/src/environments.ts`
 
 ## Running the App
