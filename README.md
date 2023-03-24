@@ -65,7 +65,7 @@ npm install
 
 ## Running the App
 
-**Note:** Before you are able to run the app ensure you have installed all required dependencies by following the [Installation](#installation) section above
+**Note:** Before you are able to run the app, ensure you have installed all required dependencies by following the [Installation](#installation) section above
 
 1. To run the app navigate to the `sleeptracker` folder in your terminal
 2. Enter the command
