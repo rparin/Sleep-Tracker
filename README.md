@@ -21,7 +21,7 @@ This is a sleep tracker app that allows users to monitor their sleep patterns an
 
 <div align="center">
 
-<img width=60% alt="demo of Sleep Tracker App" src="https://raw.githubusercontent.com/rparin/Sleep-Tracker/main/preview/Demo.gif">
+<img height=300 alt="demo of Sleep Tracker App" src="https://raw.githubusercontent.com/rparin/Sleep-Tracker/main/preview/Demo.gif">
 
 </div>
 
